@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-movies/static/css/main.cb9b47e9.css",
+    "main.js": "/react-movies/static/js/main.3e13ee48.js",
+    "static/media/SF-Pro-Display-Semibold.woff": "/react-movies/static/media/SF-Pro-Display-Semibold.7ea637010c6d017a271f.woff",
+    "static/media/SF-Pro-Display-Medium.woff": "/react-movies/static/media/SF-Pro-Display-Medium.fb2dece3e130aaac0c6a.woff",
+    "static/media/SF-Pro-Display-Light.woff": "/react-movies/static/media/SF-Pro-Display-Light.bffc93aefbe50f59253a.woff",
+    "static/media/SF-Pro-Display-Bold.woff": "/react-movies/static/media/SF-Pro-Display-Bold.ab9e1800c01f3e196bc1.woff",
+    "static/media/SF-Pro-Display-Regular.woff": "/react-movies/static/media/SF-Pro-Display-Regular.891876f0c5b14d120caf.woff",
+    "static/media/SF-Pro-Display-Semibold.woff2": "/react-movies/static/media/SF-Pro-Display-Semibold.b90a90cf8d2f2ae9d158.woff2",
+    "static/media/SF-Pro-Display-Medium.woff2": "/react-movies/static/media/SF-Pro-Display-Medium.5cfb6fad9586b6e47ba4.woff2",
+    "static/media/SF-Pro-Display-Light.woff2": "/react-movies/static/media/SF-Pro-Display-Light.e3f49294a953ed7c7907.woff2",
+    "static/media/SF-Pro-Display-Bold.woff2": "/react-movies/static/media/SF-Pro-Display-Bold.6aa0eb300836a579103c.woff2",
+    "static/media/SF-Pro-Display-Regular.woff2": "/react-movies/static/media/SF-Pro-Display-Regular.3073447f40402b57bdac.woff2",
+    "index.html": "/react-movies/index.html",
+    "main.cb9b47e9.css.map": "/react-movies/static/css/main.cb9b47e9.css.map",
+    "main.3e13ee48.js.map": "/react-movies/static/js/main.3e13ee48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb9b47e9.css",
+    "static/js/main.3e13ee48.js"
+  ]
+}
