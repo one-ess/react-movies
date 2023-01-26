@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #4a54c3;
+}
+
+.footer {
+  padding: 50px 0;
+  background-color: #4a54c3;
+}
+
+.movies__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  @media (max-width: 1330px) {
+    justify-content: center;
+  }
+}
+
+.movie__item {
+  border: 1px solid black;
+  max-width: 302px;
+}
+
+.form {
+  margin-bottom: 40px;
+  max-width: 400px;
+  &__input {
+    outline: none;
+    padding: 6px 12px;
+    width: 100%;
+  }
+}
+
+.radio__list {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+  label {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+}
