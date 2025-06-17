@@ -1,0 +1,28 @@
+.paginationItem {
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #e7e7e7;
+}
+
+.paginationLink {
+  padding: 8px;
+  color: #000;
+  border-radius: 4px;
+}
+
+.paginationLinkActive {
+  color: #fff;
+  background-color: #7719ad;
+}
+
+.paginationNav {
+  padding: 8px;
+  background-color: #7719ad;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  &:disabled {
+    background-color: #e7e7e7;
+    color: #000;
+  }
+}
