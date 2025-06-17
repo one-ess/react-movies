@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container">
         <div className={wrapper}>
           <h1 className={title}>React Movies</h1>
-          <a className={link} href="#">
+          <a className={link} href="https://github.com/one-ess/react-movies">
             Repo
           </a>
         </div>

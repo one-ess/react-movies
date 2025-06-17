@@ -40,14 +40,14 @@
   cursor: pointer;
   &:checked {
     &::before {
-      position: absolute;
       content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 7px;
       height: 7px;
       background-color: #914ae2;
       border-radius: 50%;
-      top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%);
     }
   }

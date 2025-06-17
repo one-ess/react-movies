@@ -1,28 +1,23 @@
 import { useState, useEffect, useContext } from "react";
-import styles from "./Pagination.module.scss";
-import PaginationItem from "../ui/PaginationItem";
 import { MovieContext } from "../../context/context";
 
-const Pagination = () => {
-  const { radioValue, totalPages, currentPage, searchText, dispatch } = useContext(MovieContext);
-  const { paginationList } = styles;
+import s from "./Pagination.module.scss";
+import PaginationItem from "../ui/PaginationItem";
 
+const Pagination = () => {
+  const { radioValue, totalPages, currentPage, searchText, goToPage } = useContext(MovieContext);
   const [paginationStep, setPaginationStep] = useState(1);
   const pageLimit = 10;
 
   useEffect(() => {
     setPaginationStep(1);
-    dispatch({ type: "SET_CURRENT_PAGE", payload: 1 });
+    goToPage(1);
   }, [radioValue, searchText]);
-
-  const goToPage = (page) => {
-    dispatch({ type: "SET_CURRENT_PAGE", payload: page });
-  };
 
   const goToNextPage = () => {
     if (currentPage < totalPages) {
       const newPage = currentPage + 1;
-      dispatch({ type: "SET_CURRENT_PAGE", payload: newPage });
+      goToPage(newPage);
 
       if (newPage >= paginationStep + pageLimit) {
         setPaginationStep(paginationStep + 1);
@@ -33,7 +28,7 @@ const Pagination = () => {
   const goToPrevPage = () => {
     if (currentPage > 1) {
       const newPage = currentPage - 1;
-      dispatch({ type: "SET_CURRENT_PAGE", payload: newPage });
+      goToPage(newPage);
 
       if (newPage < paginationStep) {
         setPaginationStep(paginationStep - 1);
@@ -43,12 +38,12 @@ const Pagination = () => {
 
   const goToFirstPage = () => {
     setPaginationStep(1);
-    dispatch({ type: "SET_CURRENT_PAGE", payload: 1 });
+    goToPage(1);
   };
 
   const goToLastPage = () => {
     totalPages <= pageLimit ? setPaginationStep(1) : setPaginationStep(totalPages - pageLimit + 1);
-    dispatch({ type: "SET_CURRENT_PAGE", payload: totalPages });
+    goToPage(totalPages);
   };
 
   const renderPages = () => {
@@ -63,7 +58,7 @@ const Pagination = () => {
   const pages = renderPages();
 
   return (
-    <ul className={paginationList}>
+    <ul className={s.paginationList}>
       <PaginationItem nav onClick={goToFirstPage} disabled={currentPage === 1}>
         {"<<"}
       </PaginationItem>
