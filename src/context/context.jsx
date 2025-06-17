@@ -15,7 +15,25 @@ const initialState = {
 export const MovieContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  state.dispatch = dispatch;
+  const value = {
+    ...state,
+    dispatch,
+    handleOMDBResponse: (data) => {
+      dispatch({ type: "HANDLE_OMDB_RESPONSE", payload: data });
+    },
+    setLoading: (isLoading) => {
+      dispatch({ type: "SET_LOADING", payload: isLoading });
+    },
+    changeText: (text) => {
+      dispatch({ type: "CHANGE_TEXT", payload: text });
+    },
+    changeRadio: (value) => {
+      dispatch({ type: "CHANGE_RADIO", payload: value });
+    },
+    goToPage: (page) => {
+      dispatch({ type: "GO_TO_PAGE", payload: page });
+    },
+  };
 
-  return <MovieContext.Provider value={state}>{children}</MovieContext.Provider>;
+  return <MovieContext.Provider value={value}>{children}</MovieContext.Provider>;
 };
