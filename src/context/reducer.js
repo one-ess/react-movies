@@ -5,43 +5,34 @@ const reducer = (state, action) => {
         ...state,
         loading: action.payload,
       };
-    case "CHANGE_TEXT": {
-      const trimmedValue = action.payload.target.value.trim();
-
-      if (trimmedValue) {
-        return {
-          ...state,
-          searchText: trimmedValue,
-          currentPage: 1,
-        };
-      } else {
-        return state;
-      }
-    }
-    case "CHANGE_RADIO":
+    case "HANDLE_OMDB_RESPONSE":
       return {
         ...state,
-        radioValue: action.payload.target.value,
-        currentPage: 1,
+        movies: action.payload.movies,
+        totalPages: action.payload.totalPages,
+        loading: false,
       };
-    case "HANDLE_OMDB_RESPONSE":
-      if (action.payload.Response === "False") {
-        return {
-          ...state,
-          movies: [],
-          totalPages: 1,
-        };
-      } else {
-        return {
-          ...state,
-          movies: action.payload.Search,
-          totalPages: Math.ceil(Number(action.payload.totalResults) / 10),
-        };
-      }
+    case "HANDLE_TEXT_CHANGE":
+      return {
+        ...state,
+        searchText: action.payload,
+        currentPage: 1,
+        paginationStep: 1,
+        radioValue: "",
+      };
+    case "HANDLE_RADIO_CHANGE":
+      return {
+        ...state,
+        radioValue: action.payload,
+        currentPage: 1,
+        paginationStep: 1,
+      };
+
     case "GO_TO_PAGE":
       return {
         ...state,
-        currentPage: action.payload,
+        currentPage: action.payload.newPage,
+        paginationStep: action.payload.newStep,
       };
     default:
       return state;

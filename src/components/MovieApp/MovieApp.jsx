@@ -14,9 +14,12 @@ const MovieApp = () => {
   const debouncedSearchText = useDebounce(searchText, 600);
 
   useEffect(() => {
+    if (!debouncedSearchText) return;
+
     const fetchData = async () => {
       try {
         setLoading(true);
+
         const response = await fetch(`https://www.omdbapi.com/?s=${debouncedSearchText}&type=${radioValue}&page=${currentPage}&apikey=${API_KEY}`);
 
         if (!response.ok) {
@@ -28,8 +31,6 @@ const MovieApp = () => {
         handleOMDBResponse(data);
       } catch (error) {
         console.error("Ошибка:", error.message);
-      } finally {
-        setLoading(false);
       }
     };
 
