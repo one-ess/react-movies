@@ -9,9 +9,9 @@ export const MovieContextProvider = ({ children }) => {
 
   const initialState = {
     movies: [],
-    loading: true,
-    searchText: searchParams.get("text") || "John Wick",
-    radioValue: searchParams.get("type") || "",
+    isLoading: true,
+    text: searchParams.get("text") || "John Wick",
+    type: searchParams.get("type") || "",
     currentPage: Number(searchParams.get("page")) || 1,
     paginationStep: Number(searchParams.get("step")) || 1,
     totalPages: 1,
@@ -21,10 +21,10 @@ export const MovieContextProvider = ({ children }) => {
 
   const value = {
     ...state,
+
     handleOMDBResponse: (data) => {
       const movies = data.Response === "True" ? data.Search : [];
       const totalPages = data.Response === "True" ? Math.ceil(Number(data.totalResults) / 10) : 1;
-
       dispatch({ type: "HANDLE_OMDB_RESPONSE", payload: { movies, totalPages } });
     },
 
@@ -60,9 +60,7 @@ export const MovieContextProvider = ({ children }) => {
     goToPage: (page) => {
       const newPage = Math.max(1, Math.min(page, state.totalPages));
       const newStep = Math.floor((page - 1) / 10) * 10 + 1;
-
       dispatch({ type: "GO_TO_PAGE", payload: { newPage, newStep } });
-
       setSearchParams((prev) => {
         const params = new URLSearchParams(prev);
         params.set("page", newPage);

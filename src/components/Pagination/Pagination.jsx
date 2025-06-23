@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { MovieContext } from "../../context/context";
 
 import s from "./Pagination.module.scss";
-import PaginationItem from "../ui/PaginationItem";
+import PaginationItem from "../ui/PaginationItem/PaginationItem";
 
 const Pagination = () => {
   const { totalPages, currentPage, goToPage, paginationStep } = useContext(MovieContext);
@@ -34,6 +34,7 @@ const Pagination = () => {
           key={page}
           currentPage={currentPage}
           page={page}
+          disabled={currentPage === page}
           onClick={() => {
             goToPage(page);
           }}

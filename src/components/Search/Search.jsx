@@ -4,7 +4,7 @@ import { MovieContext } from "../../context/context";
 import s from "./Search.module.scss";
 
 const Search = () => {
-  const { radioValue, handleTextChange, handleRadioChange } = useContext(MovieContext);
+  const { type, handleTextChange, handleRadioChange } = useContext(MovieContext);
 
   return (
     <form className={s.form} onSubmit={(e) => e.preventDefault()}>
@@ -25,7 +25,7 @@ const Search = () => {
             type="radio"
             name="category"
             value=""
-            checked={radioValue === ""}
+            checked={type === ""}
             onChange={(e) => {
               handleRadioChange(e);
             }}
@@ -38,7 +38,7 @@ const Search = () => {
             type="radio"
             name="category"
             value="movie"
-            checked={radioValue === "movie"}
+            checked={type === "movie"}
             onChange={(e) => {
               handleRadioChange(e);
             }}
@@ -51,7 +51,7 @@ const Search = () => {
             type="radio"
             name="category"
             value="series"
-            checked={radioValue === "series"}
+            checked={type === "series"}
             onChange={(e) => {
               handleRadioChange(e);
             }}
@@ -64,7 +64,7 @@ const Search = () => {
             type="radio"
             name="category"
             value="game"
-            checked={radioValue === "game"}
+            checked={type === "game"}
             onChange={(e) => {
               handleRadioChange(e);
             }}

@@ -3,27 +3,27 @@ const reducer = (state, action) => {
     case "SET_LOADING":
       return {
         ...state,
-        loading: action.payload,
+        isLoading: action.payload,
       };
     case "HANDLE_OMDB_RESPONSE":
       return {
         ...state,
         movies: action.payload.movies,
         totalPages: action.payload.totalPages,
-        loading: false,
+        isLoading: false,
       };
     case "HANDLE_TEXT_CHANGE":
       return {
         ...state,
-        searchText: action.payload,
+        text: action.payload,
         currentPage: 1,
         paginationStep: 1,
-        radioValue: "",
+        type: "",
       };
     case "HANDLE_RADIO_CHANGE":
       return {
         ...state,
-        radioValue: action.payload,
+        type: action.payload,
         currentPage: 1,
         paginationStep: 1,
       };
